@@ -1,0 +1,17 @@
+pipeline{
+  agent {
+    label {
+              label "built-in"
+              customWorkspace "/mnt/project"
+    }
+  }
+  satges{
+    satge('project'){
+      steps{
+               
+               sh "docker build -t server:1 /mnt/project/."
+               sh "docker run -itdp 80:80 --name test server:1"
+      }
+    }
+  }
+}
