@@ -5,8 +5,8 @@ pipeline{
               customWorkspace "/mnt/project"
     }
   }
-  satges{
-    satge('project'){
+  stages{
+    stage('project'){
       steps{
                sh "systemctl start docker"
                sh "docker build -t server:1 /mnt/project/."
